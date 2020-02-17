@@ -15,9 +15,11 @@ export default function InterestRateCalculator() {
   return (
     <Container>
       <h1>InterestRateCalculator</h1>
-      <div style={{ background : '#fff'}}>
-        <button onClick={() => console.log(storkCalculator(interestRateNeededInfo))}>teste</button>
-      </div>
+      <button 
+        style={{ marginLeft: 30, width: 100, height: 50 }}       
+        onClick={() => console.log(storkCalculator(interestRateNeededInfo))}>
+            teste
+      </button>
     </Container>
   );
 }
