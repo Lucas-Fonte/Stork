@@ -1,7 +1,10 @@
 import React from 'react';
+import { Container } from './styles';
 
 export default function InterestRateCalculator() {
   return (
-    <h1>InterestRateCalculator</h1>
+    <Container>
+      <h1>InterestRateCalculator</h1>
+    </Container>
   );
 }
