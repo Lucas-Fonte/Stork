@@ -1,5 +1,5 @@
 import React from 'react';
-import GlobalStyle from './styles/global';
+// import GlobalStyle from './styles/global';
 import Header from './components/Header';
 import InterestRateCalculator from './components/InterestRateCalculator';
 import Footer from './components/Footer';
@@ -7,7 +7,7 @@ import Footer from './components/Footer';
 function App() {
   return (
     <>
-      <GlobalStyle />
+      {/* <GlobalStyle /> */}
       <Header />
       <InterestRateCalculator />
       <Footer />
