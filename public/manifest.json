@@ -1,6 +1,6 @@
 {
     "name": "Stork",
-    "start_url": "./index.html",
+    "start_url": "https://storkapp.netlify.com/",
     "short_name": "stork",
     "display": "standalone",
     "theme_color": "#000",
