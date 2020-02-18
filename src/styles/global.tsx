@@ -15,8 +15,8 @@ export default createGlobalStyle`
         overflow: hidden;
     }
     ::-webkit-scrollbar {
-        width: 0px;  /* Remove scrollbar space */
-        background: transparent;  /* Optional: just make scrollbar invisible */
+        width: 0px;  
+        background: transparent; 
     }
     body {
         -webkit-font-smoothing: antialiased;

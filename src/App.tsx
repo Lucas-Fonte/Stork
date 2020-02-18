@@ -1,17 +1,16 @@
 import React from 'react';
-// import GlobalStyle from './styles/global';
-import Header from './components/Header';
-import InterestRateCalculator from './components/InterestRateCalculator';
-import Footer from './components/Footer';
+import { Router } from 'react-router-dom';
+import GlobalStyle from './styles/global';
+import Routes from './routes';
+
+import history from './services/history';
 
 function App() {
   return (
-    <>
-      {/* <GlobalStyle /> */}
-      <Header />
-      <InterestRateCalculator />
-      <Footer />
-    </>
+    <Router history={history}>
+      <Routes />
+      <GlobalStyle />
+    </Router>
   );
 }
 
