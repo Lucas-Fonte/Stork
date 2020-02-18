@@ -1,7 +1,17 @@
 import React from 'react';
+import Header from '../../components/Header';
+import InterestRateCalculator from '../../components/InterestRateCalculator';
+import Footer from '../../components/Footer';
+import { Content } from './styles';
 
 export default function Main() {
   return (
-    <h1>Main</h1>
+    
+    <Content>
+        <Header></Header>
+        <InterestRateCalculator></InterestRateCalculator>
+        <Footer></Footer>
+    </Content>
+      
   );
 }

@@ -1,15 +1,16 @@
 interface InterestRateNeededInfo {
   EntryValue: number;
   interestRate: number;
-  Time: number;
+  Time?: number;
   MonthlyInput: number;
+  FinancialGoal?: number;
 }
 
 function calculateInterestRate(interestRateNeededInfo: InterestRateNeededInfo) {
   const {
     EntryValue,
     interestRate,
-    Time,
+    Time = 1,
     MonthlyInput
   } = interestRateNeededInfo;
   let totalValue = EntryValue;
