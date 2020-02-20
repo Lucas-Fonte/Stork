@@ -14,9 +14,6 @@ export const Container = styled.div`
       flex-direction: row;
       align-items: center;
       color: #fff;
-      @media only screen and (max-width: 600px) {
-        margin-top: 100px;
-      }
     }
 
 }

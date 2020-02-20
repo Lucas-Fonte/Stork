@@ -14,9 +14,6 @@ export const Container = styled.div`
         align-items: center;
         flex-direction: column;
         padding: 10px;
-        @media only screen and (max-width: 600px) {
-            margin-top: 50px;
-        }
     }
 
     button {
