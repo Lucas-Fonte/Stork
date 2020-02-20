@@ -1,27 +1,32 @@
-/* eslint-disable no-console */
-/* eslint-disable react/button-has-type */
-import React from 'react';
-import { Container } from './styles';
+import React, { useRef, useState } from 'react';
+import { SubmitHandler, FormHandles } from '@unform/core';
+import { Form } from '@unform/web';
+import { InterestRateNeededInfo } from '../../../typings/types';
 import { storkCalculator } from '../../utils/interestRateCalculator';
+import { Container } from './styles';
 
-export default function InterestRateCalculator() {
-  const interestRateNeededInfo = {
-    EntryValue: 10000,
-    interestRate: 0.01,
-    Time: 12,
-    MonthlyInput: 2850,
+import Input from '../_unform/Input';
+import SubmitButton from '../_unform/Button';
+
+const InterestRateCalculator: React.FC = () => {
+  const [result, setResult] = useState<InterestRateNeededInfo>();
+
+  const formRef = useRef<FormHandles>(null);
+  const handleSubmit: SubmitHandler<InterestRateNeededInfo> = (data) => {
+    setResult(storkCalculator(data));
   };
-
-
   return (
     <Container>
-      <h1>InterestRateCalculator</h1>
-      <button
-        style={{ marginLeft: 30, width: 100, height: 50 }}
-        onClick={() => console.log(storkCalculator(interestRateNeededInfo))}
-      >
-        teste
-      </button>
+      <Form ref={formRef} onSubmit={handleSubmit}>
+        <Input name="EntryValue" label="Initial Value" required />
+        <Input name="interestRate" label="Interest Rate" required />
+        <Input name="Time" label="Time" required />
+        <Input name="MonthlyInput" label="Monthly Input" required />
+        <SubmitButton type="submit" label="Submit" />
+      </Form>
+      <p>{JSON.stringify(result, null, 4)}</p>
     </Container>
+
   );
-}
+};
+export default InterestRateCalculator;

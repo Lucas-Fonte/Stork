@@ -6,6 +6,9 @@ module.exports = {
   extends: [
     'plugin:react/recommended',
     'airbnb',
+    "eslint:recommended",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
   ],
   globals: {
     Atomics: 'readonly',
@@ -24,10 +27,14 @@ module.exports = {
     '@typescript-eslint',
   ],
   rules: {
-  'react/jsx-filename-extension':'off',
-  'import/extensions':'off',
-  'import/no-unresolved':'off',
-  'import/prefer-default-export':'off',
-  'no-console ':'off',
+    "react/prop-types": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "react/jsx-props-no-spreading": "off",
+    "no-console": "off",
+    "no-plusplus": "off",
+    'react/jsx-filename-extension':'off',
+    'import/extensions':'off',
+    'import/no-unresolved':'off',
+    'import/prefer-default-export':'off',
   },
 };

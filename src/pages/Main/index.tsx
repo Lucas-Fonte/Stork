@@ -6,12 +6,12 @@ import { Content } from './styles';
 
 export default function Main() {
   return (
-    
+
     <Content>
-        <Header></Header>
-        <InterestRateCalculator></InterestRateCalculator>
-        <Footer></Footer>
+      <Header />
+      <InterestRateCalculator />
+      <Footer />
     </Content>
-      
+
   );
 }
