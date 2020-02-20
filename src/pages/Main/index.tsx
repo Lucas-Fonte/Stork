@@ -8,6 +8,7 @@ export default function Main() {
   return (
 
     <Content>
+      <div></div>
       <Header />
       <InterestRateCalculator />
       <Footer />

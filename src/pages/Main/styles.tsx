@@ -6,4 +6,8 @@ export const Content = styled.div`
     width: 100vw;
     height: 100vh;
     background: purple;
+
+    div {
+        margin-top: 20px;
+    }
 `;
