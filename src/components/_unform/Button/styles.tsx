@@ -7,9 +7,9 @@ export const Button = styled.button`
       color: #fff;
       border: 0;
       border-radius: 4px;
-      padding: 10px;
+      padding: 14px;
       font-size: 16px;
-      transition: background 0.2s;
+      transition: background 0.5s;
       &:hover {
         color: #666;
         background: ${darken(0.05, '#F6D741')};
