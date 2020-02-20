@@ -5,7 +5,7 @@ import { Container } from './styles';
 export default function Footer() {
   return (
     <Container>
-      <h5>© 2020 Crow, CO.</h5>
+      <h3>© 2020 Crow, CO.</h3>
     </Container>
   );
 }

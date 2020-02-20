@@ -8,7 +8,7 @@ export const Button = styled.button`
       border: 0;
       border-radius: 4px;
       padding: 10px;
-      font-size: 10px;
+      font-size: 16px;
       transition: background 0.2s;
       &:hover {
         color: #666;

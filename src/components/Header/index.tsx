@@ -8,8 +8,8 @@ export default function Header() {
   return (
     <Container>
       <a href=".">
-        <img src={logo} alt="Stork" width="50" height="40" />
-        <h1 style={{ marginLeft: 10 }}>$tork</h1>
+        <img src={logo} alt="Stork" width="100" height="80" />
+        <h1 style={{ marginLeft: 10 }}>Stork</h1>
       </a>
     </Container>
   );

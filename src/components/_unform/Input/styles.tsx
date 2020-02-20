@@ -7,9 +7,11 @@ export const InputContainer = styled.div`
 
     input {
       background: rgba(0, 0, 0, 0.3);
+      width: 250px;
+      height: 50px;
       border: 0;
-      border-radius: 4px;
-      padding: 8px;
+      border-radius: 5px;
+      padding: 6px;
       color: #fff;
       margin: 0 0 10px;
       &::placeholder {
@@ -19,7 +21,7 @@ export const InputContainer = styled.div`
 
     label {
         font-weight: bold;
-        font-size: 8px;
+        font-size: 12px;
         margin-bottom: 2px;
     }
 `;
