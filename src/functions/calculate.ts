@@ -1,7 +1,7 @@
 import {
   Handler, Context, Callback, APIGatewayEvent,
 } from 'aws-lambda';
-import storkCalculator from './utils/storkCalculator';
+import storkCalculator from '../utils/storkCalculator';
 
 interface CalculateResponse {
   statusCode: number;

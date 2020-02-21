@@ -1,4 +1,4 @@
-import { InterestRateNeededInfo } from '../../../typings/types';
+import { InterestRateNeededInfo } from '../../typings/types';
 
 export const calculateInterestRate = (interestRateNeededInfo: InterestRateNeededInfo) => {
   const {
