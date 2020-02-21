@@ -1,21 +1,31 @@
 import React, { useRef, useState } from 'react';
 import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
-import axios from 'axios';
+import { gql } from 'apollo-boost';
 import { InterestRateNeededInfo } from '../../../typings/types';
 import { Container } from './styles';
 
 import Input from '../_unform/Input';
 import SubmitButton from '../_unform/Button';
+import { client } from '../../graphqlClient';
 
 const InterestRateCalculator: React.FC = () => {
   const [result, setResult] = useState<InterestRateNeededInfo>();
 
   const formRef = useRef<FormHandles>(null);
+
   const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (data) => {
-    const api = await axios.get('/.netlify/functions/calculate');
-    setResult(api.data);
+    const response: any = await client.query({
+      query: gql`{
+          hello
+        }
+        `,
+    });
+
+    setResult(response.data);
   };
+
+
   return (
     <Container>
       <Form ref={formRef} onSubmit={handleSubmit}>

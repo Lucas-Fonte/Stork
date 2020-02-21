@@ -8,7 +8,7 @@ export default function Main() {
   return (
 
     <Content>
-      <div></div>
+      <div style={{ height: '8%' }} />
       <Header />
       <InterestRateCalculator />
       <Footer />

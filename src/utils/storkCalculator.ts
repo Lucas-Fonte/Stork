@@ -14,7 +14,7 @@ export default function storkCalculator(interestRateNeededInfo: InterestRateNeed
     MonthlyInput,
     interestRate,
     Time,
-    totalValue: calculateInterestRate(interestRateNeededInfo),
+    totalValue: calculateInterestRate(interestRateNeededInfo).toFixed(2),
     roadToMillion: roadToMillion(interestRateNeededInfo),
     years: (roadToMillion(interestRateNeededInfo) / 12).toFixed(2),
   };

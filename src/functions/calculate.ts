@@ -17,8 +17,9 @@ const handler: Handler = (
     statusCode: 200,
     body: JSON.stringify({
       calculated: storkCalculator({
-        EntryValue: 10000, interestRate: 1, Time: 12, MonthlyInput: 2850,
+        EntryValue: 10000, interestRate: 0.01, Time: 1, MonthlyInput: 2850,
       }),
+      event,
     }),
   };
 
