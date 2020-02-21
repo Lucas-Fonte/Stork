@@ -1,5 +1,5 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { ApolloServer, gql } from 'apollo-server-lambda';
+/* eslint-disable @typescript-eslint/no-var-requires */
+const { ApolloServer, gql } = require('apollo-server-lambda');
 
 const typeDefs = gql`
   type Query {
@@ -21,3 +21,5 @@ const server = new ApolloServer({
 });
 
 exports.handler = server.createHandler();
+
+export {};
