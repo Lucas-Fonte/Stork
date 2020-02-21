@@ -20,6 +20,6 @@
     "jsx": "react"
   },
   "include": [
-    "src", "typings"
+    "src", "typings", "src/lamda"
   ]
 }
