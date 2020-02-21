@@ -21,5 +21,3 @@ const server = new ApolloServer({
 });
 
 exports.handler = server.createHandler();
-
-export {};
