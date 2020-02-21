@@ -1,4 +1,4 @@
-import { InterestRateNeededInfo } from '../../../typings/types';
+import { InterestRateNeededInfo } from '../../typings/types';
 import { roadToMillion, calculateInterestRate } from './helpers';
 
 export default function storkCalculator(interestRateNeededInfo: InterestRateNeededInfo) {
