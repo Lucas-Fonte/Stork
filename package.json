@@ -31,8 +31,12 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
+    "start": "run-p start:**",
+    "start:app": "react-scripts start",
+    "start:lambda": "netlify-lambda serve src/functions",
+    "build": "run-p build:**",
+    "build:app": "react-scripts build",
+    "build:lambda": "netlify-lambda build src/functions",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "lambda": "netlify-lambda serve src/functions"
@@ -62,6 +66,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.18.3",
     "eslint-plugin-react-hooks": "^1.7.0",
-    "ts-node": "^8.6.2"
+    "ts-node": "^8.6.2",
+    "npm-run-all": "^4.1.5"
   }
 }
