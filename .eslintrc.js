@@ -28,6 +28,7 @@ module.exports = {
   ],
   rules: {
     "func-names": "off",
+    "class-methods-use-this": "off",
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",
     "react/jsx-props-no-spreading": "off",
