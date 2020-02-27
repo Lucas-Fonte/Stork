@@ -14,10 +14,18 @@ const InterestRateCalculator: React.FC = () => {
 
   const formRef = useRef<FormHandles>(null);
 
-  const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (data) => {
+  const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (formData) => {
+    const { EntryValue, interestRate, Time, MonthlyInput, FinancialGoal}  = formData;
     const response: any = await client.query({
-      query: gql`{
-          hello
+      query: gql`
+        mutation {
+          startCalculator(
+            EntryValue: ${EntryValue},
+            interestRate: ${interestRate},
+            Time: ${Time},
+            MonthlyInput: ${MonthlyInput},
+            FinancialGoal: ${FinancialGoal},
+          )
         }
         `,
     });

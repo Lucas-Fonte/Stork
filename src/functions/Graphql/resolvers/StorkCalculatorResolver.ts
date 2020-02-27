@@ -1,3 +1,5 @@
+import storkCalculator from "../../../utils/storkCalculator";
+
 export const StorkCalculatorResolver = {
   Query: {
     hello: () => {
@@ -5,9 +7,9 @@ export const StorkCalculatorResolver = {
     }
   },
   Mutation: {
-      setMessage: (parameters: any, args: any, context: any) => {
-          return args.message
-      }
+    startCalculator: (parameters: any, args: any, context: any) => {
+        return JSON.stringify(storkCalculator(args));
+    }
   }
 };
 

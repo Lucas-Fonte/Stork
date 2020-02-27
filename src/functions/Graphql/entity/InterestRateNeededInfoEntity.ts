@@ -6,7 +6,13 @@ export const InterestRateNeededInfoEntity = gql`
   }
 
   type Mutation {
-    setMessage(message: String): String
+    startCalculator(
+        EntryValue: Float,
+        interestRate: Float,
+        Time: Float,
+        MonthlyInput: Float,
+        FinancialGoal: Float
+    ): String
   }
 `;
 
