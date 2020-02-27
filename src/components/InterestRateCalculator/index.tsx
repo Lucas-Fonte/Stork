@@ -8,6 +8,7 @@ import { Container } from './styles';
 import Input from '../_unform/Input';
 import SubmitButton from '../_unform/Button';
 import { client } from '../../graphqlClient';
+import { useMutation } from '@apollo/react-hooks';
 
 const InterestRateCalculator: React.FC = () => {
   const [result, setResult] = useState<InterestRateNeededInfo>();
@@ -15,20 +16,30 @@ const InterestRateCalculator: React.FC = () => {
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (formData) => {
+    
     const { EntryValue, interestRate, Time, MonthlyInput, FinancialGoal}  = formData;
-    const response: any = await client.query({
-      query: gql`
-        mutation {
-          startCalculator(
-            EntryValue: ${EntryValue},
-            interestRate: ${interestRate},
-            Time: ${Time},
-            MonthlyInput: ${MonthlyInput},
-            FinancialGoal: ${FinancialGoal},
-          )
-        }
-        `,
-    });
+
+    const START_CACULATOR = gql`     
+    mutation {
+        startCalculator(
+            EntryValue: $EntryValue,
+            interestRate: $interestRate,
+            Time: $Time,
+            MonthlyInput: $MonthlyInput,
+            FinancialGoal: $FinancialGoal,
+        )
+    }`;
+
+    const [startCalculator, { data }] = useMutation(START_CACULATOR);
+    
+    const response: any = await startCalculator({ 
+        variables : {
+            EntryValue,
+            interestRate,
+            Time,
+            MonthlyInput,
+            FinancialGoal
+        }})
 
     setResult(response.data);
   };
@@ -41,6 +52,7 @@ const InterestRateCalculator: React.FC = () => {
         <Input name="interestRate" label="Interest Rate" required />
         <Input name="Time" label="Time" required />
         <Input name="MonthlyInput" label="Monthly Input" required />
+        <Input name="FinancialGoal" label="Financial Goal" required />
         <SubmitButton type="submit" label="Submit" />
       </Form>
       <p>{JSON.stringify(result, null, 4)}</p>
