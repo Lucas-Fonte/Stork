@@ -1,21 +1,15 @@
 import 'reflect-metadata';
 import { ApolloServer } from 'apollo-server-lambda';
-import { buildSchema, Resolver, Query } from 'type-graphql';
+import { buildSchema } from 'type-graphql';
 import {
   Context, Callback, APIGatewayProxyResult,
 } from 'aws-lambda';
+import { StorkCalculatorResolver } from './Graphql/resolvers/StorkCalculatorResolver';
 
-@Resolver()
-class HelloResolver {
-  @Query(() => String)
-  async hello() {
-    return 'Hello world';
-  }
-}
 
 const createHandler = async () => {
   const schema = await buildSchema({
-    resolvers: [HelloResolver],
+    resolvers: [StorkCalculatorResolver],
   });
 
   const server = new ApolloServer({

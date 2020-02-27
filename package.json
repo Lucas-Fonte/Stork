@@ -37,7 +37,8 @@
     "reflect-metadata": "^0.1.13",
     "styled-components": "^5.0.1",
     "type-graphql": "^0.17.6",
-    "typescript": "~3.7.2"
+    "typescript": "~3.7.2",
+    "ws": "^7.2.1"
   },
   "scripts": {
     "start": "run-p start:**",
@@ -67,10 +68,12 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-syntax-decorators": "^7.8.3",
     "@babel/plugin-transform-runtime": "^7.8.3",
     "@types/react": "^16.9.19",
     "@typescript-eslint/eslint-plugin": "^2.19.2",
     "@typescript-eslint/parser": "^2.19.2",
+    "babel-plugin-parameter-decorator": "^1.0.15",
     "eslint": "^6.8.0",
     "eslint-config-airbnb": "^18.0.1",
     "eslint-plugin-import": "^2.20.1",
