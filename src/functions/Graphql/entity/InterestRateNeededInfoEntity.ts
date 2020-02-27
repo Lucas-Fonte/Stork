@@ -1,21 +1,13 @@
-import { ObjectType, Field } from 'type-graphql';
+import { gql } from "apollo-server-lambda";
 
-@ObjectType()
-class InterestRateNeededInfoEntity {
-  @Field()
-  EntryValue: number | undefined;
+export const InterestRateNeededInfoEntity = gql`
+  type Query {
+    hello: String
+  }
 
-  @Field()
-  interestRate: number | undefined;
+  type Mutation {
+    setMessage(message: String): String
+  }
+`;
 
-  @Field()
-  Time: number | undefined;
 
-  @Field()
-  MonthlyInput: number | undefined;
-
-  @Field()
-  FinancialGoal: number | undefined;
-}
-
-export { InterestRateNeededInfoEntity };

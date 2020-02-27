@@ -5,7 +5,7 @@ export const Content = styled.div`
     flex-direction: column;
     width: 100vw;
     height: 100vh;
-    background: purple;
+    background: #4C433A;
 
     div {
         margin-top: 20px;
