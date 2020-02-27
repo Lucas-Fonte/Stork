@@ -10,16 +10,7 @@ import SubmitButton from '../_unform/Button';
 import { client } from '../../graphqlClient';
 import { useMutation } from '@apollo/react-hooks';
 
-const InterestRateCalculator: React.FC = () => {
-  const [result, setResult] = useState<InterestRateNeededInfo>();
-
-  const formRef = useRef<FormHandles>(null);
-
-  const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (formData) => {
-    
-    const { EntryValue, interestRate, Time, MonthlyInput, FinancialGoal}  = formData;
-
-    const START_CACULATOR = gql`     
+const START_CACULATOR = gql`     
     mutation {
         startCalculator(
             EntryValue: $EntryValue,
@@ -28,9 +19,17 @@ const InterestRateCalculator: React.FC = () => {
             MonthlyInput: $MonthlyInput,
             FinancialGoal: $FinancialGoal,
         )
-    }`;
+}`;
 
-    const [startCalculator, { data }] = useMutation(START_CACULATOR);
+const InterestRateCalculator: React.FC = () => {
+  const [result, setResult] = useState<InterestRateNeededInfo>();
+  const [startCalculator] = useMutation(START_CACULATOR);
+
+  const formRef = useRef<FormHandles>(null);
+
+  const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (formData) => {
+    
+    const { EntryValue, interestRate, Time, MonthlyInput, FinancialGoal}  = formData;
     
     const response: any = await startCalculator({ 
         variables : {
