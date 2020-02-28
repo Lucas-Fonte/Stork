@@ -1,5 +1,5 @@
 import { InterestRateNeededInfo } from '../../typings/types';
-import { roadToMillion, calculateInterestRate } from './helpers';
+import { roadToReachGoal, calculateInterestRate } from './helpers';
 
 export default function storkCalculator(interestRateNeededInfo: InterestRateNeededInfo) {
   const {
@@ -7,6 +7,7 @@ export default function storkCalculator(interestRateNeededInfo: InterestRateNeed
     interestRate,
     Time,
     MonthlyInput,
+    FinancialGoal,
   } = interestRateNeededInfo;
 
   return {
@@ -14,8 +15,9 @@ export default function storkCalculator(interestRateNeededInfo: InterestRateNeed
     MonthlyInput,
     interestRate,
     Time,
+    FinancialGoal,
     totalValue: calculateInterestRate(interestRateNeededInfo).toFixed(2),
-    roadToMillion: roadToMillion(interestRateNeededInfo),
-    years: (roadToMillion(interestRateNeededInfo) / 12).toFixed(2),
+    roadToReachGoal: roadToReachGoal(interestRateNeededInfo),
+    years: (roadToReachGoal(interestRateNeededInfo) / 12).toFixed(2),
   };
 }

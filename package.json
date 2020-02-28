@@ -1,6 +1,7 @@
 {
   "name": "stork",
   "version": "0.1.0",
+  "proxy": "http://localhost:9000/",
   "private": true,
   "dependencies": {
     "@apollo/react-hooks": "^3.1.3",

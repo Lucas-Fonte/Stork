@@ -16,12 +16,14 @@ export const calculateInterestRate = (interestRateNeededInfo: InterestRateNeeded
   return totalValue;
 };
 
-export const roadToMillion = (interestRateNeededInfo: InterestRateNeededInfo) => {
-  const { EntryValue, interestRate, MonthlyInput } = interestRateNeededInfo;
+export const roadToReachGoal = (interestRateNeededInfo: InterestRateNeededInfo) => {
+  const {
+    EntryValue, interestRate, MonthlyInput, FinancialGoal,
+  } = interestRateNeededInfo;
   let totalValue = EntryValue;
   let i = 0;
 
-  for (i; totalValue <= 1000000; i++) {
+  for (i; totalValue <= FinancialGoal; i++) {
     totalValue = totalValue * (1 + interestRate) + MonthlyInput;
   }
 

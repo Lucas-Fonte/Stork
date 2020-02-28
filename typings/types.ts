@@ -1,9 +1,9 @@
 export interface InterestRateNeededInfo {
   EntryValue: number;
   interestRate: number;
-  Time?: number;
+  Time: number;
   MonthlyInput: number;
-  FinancialGoal?: number;
+  FinancialGoal: number;
 }
 
 export {};
