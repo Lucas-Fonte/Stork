@@ -16,5 +16,4 @@ export const Container = styled.div`
       color: #fff;
     }
 
-}
 `;
