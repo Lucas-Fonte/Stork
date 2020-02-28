@@ -20,7 +20,7 @@ export default createGlobalStyle`
     }
     body {
         -webkit-font-smoothing: antialiased;
-        overflow: hidden;
+        position: fixed;
     }
     body, input, button, select, label {
         font: 12px 'Montserrat', sans-serif;
