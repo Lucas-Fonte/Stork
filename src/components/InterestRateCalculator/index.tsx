@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useRef, useState } from 'react';
 import { SubmitHandler, FormHandles } from '@unform/core';
@@ -10,21 +9,7 @@ import { Container } from './styles';
 
 import Input from '../_unform/Input';
 import SubmitButton from '../_unform/Button';
-
-// const START_CALCULATOR = gql`
-//     mutation startCalculator(
-//         $EntryValue: String
-//         $interestRate: String
-//       ) {
-//       startCalculator(
-//         EntryValue: $EntryValue,
-//         interestRate: $interestRate,
-//         Time: $Time,
-//         MonthlyInput: $MonthlyInput,
-//         FinancialGoal: $FinancialGoal,
-//       )
-//   }
-// `;
+import { Modal } from '../Modal';
 
 const START_CALCULATOR = gql`
   mutation startCalculator(
@@ -45,7 +30,8 @@ const START_CALCULATOR = gql`
   }
 `;
 const InterestRateCalculator: React.FC = () => {
-  const [result, setResult] = useState<InterestRateNeededInfo>();
+  const [result, setResult] = useState();
+  const [modal, setModal] = useState(false);
   const [testeMutation] = useMutation(START_CALCULATOR);
 
   const formRef = useRef<FormHandles>(null);
@@ -65,7 +51,9 @@ const InterestRateCalculator: React.FC = () => {
       },
     });
 
-    setResult(response.data);
+    setModal(true);
+    const thisData = JSON.parse(response.data.startCalculator);
+    setResult(thisData);
   };
 
 
@@ -79,7 +67,7 @@ const InterestRateCalculator: React.FC = () => {
         <Input name="FinancialGoal" label="Financial Goal" required defaultValue={1000000} />
         <SubmitButton type="submit" label="Submit" />
       </Form>
-      <p>{JSON.stringify(result, null, 4)}</p>
+      <Modal data={JSON.stringify(result, null, 4)} showing={modal} />
     </Container>
 
   );

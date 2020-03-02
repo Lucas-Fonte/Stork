@@ -6,7 +6,7 @@ export const InputContainer = styled.div`
     padding: 1px;
 
     input {
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(255, 255, 255, 0.1);
       width: 250px;
       height: 50px;
       border: 0;
