@@ -8,7 +8,7 @@ export const Container = styled.div`
     border-radius: 8px;
     background: #fff;
 
-    code {
+    li {
       color: #000;
       width: 230px;
       white-space: nowrap;

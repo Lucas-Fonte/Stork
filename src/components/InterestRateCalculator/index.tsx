@@ -5,11 +5,12 @@ import { Form } from '@unform/web';
 import { gql } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
 import { InterestRateNeededInfo } from '../../../typings/types';
-import { Container } from './styles';
+import { Container, Loading } from './styles';
 
 import Input from '../_unform/Input';
 import SubmitButton from '../_unform/Button';
 import { Modal } from '../Modal';
+import { timeout } from '../../utils/helpers';
 
 const START_CALCULATOR = gql`
   mutation startCalculator(
@@ -29,14 +30,18 @@ const START_CALCULATOR = gql`
     )
   }
 `;
+
 const InterestRateCalculator: React.FC = () => {
   const [result, setResult] = useState();
+  const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [testeMutation] = useMutation(START_CALCULATOR);
 
   const formRef = useRef<FormHandles>(null);
 
   const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (formData) => {
+    setModal(false);
+    setLoading(true);
     const {
       EntryValue, interestRate, Time, MonthlyInput, FinancialGoal,
     } = formData;
@@ -51,9 +56,12 @@ const InterestRateCalculator: React.FC = () => {
       },
     });
 
-    setModal(true);
+    await timeout(1000);
+    setLoading(false);
     const thisData = JSON.parse(response.data.startCalculator);
+
     setResult(thisData);
+    setModal(true);
   };
 
 
@@ -65,7 +73,7 @@ const InterestRateCalculator: React.FC = () => {
         <Input name="Time" label="Time" required defaultValue={12} />
         <Input name="MonthlyInput" label="Monthly Input" required defaultValue={2850} />
         <Input name="FinancialGoal" label="Financial Goal" required defaultValue={1000000} />
-        <SubmitButton type="submit" label="Submit" />
+        <SubmitButton type="submit" label="Submit" loading={loading} />
       </Form>
       <Modal data={JSON.stringify(result, null, 4)} showing={modal} />
     </Container>

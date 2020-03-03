@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { InterestRateNeededInfo } from '../../typings/types';
 
 export const calculateInterestRate = (interestRateNeededInfo: InterestRateNeededInfo) => {
@@ -29,3 +30,5 @@ export const roadToReachGoal = (interestRateNeededInfo: InterestRateNeededInfo) 
 
   return i;
 };
+
+export const timeout = async (miliseconds: number) => new Promise((resolve) => setTimeout(resolve, miliseconds));

@@ -20,3 +20,8 @@ export const Container = styled.div`
         margin-top: 10px;
     }
 `;
+
+export const Loading = styled.div`
+    display: flex;
+    background: #f0f0f0;
+`;
