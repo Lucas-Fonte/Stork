@@ -8,8 +8,10 @@ export const Container = styled.div`
     width: 100%;
     height: 80%;
     color: #fff;
+    z-index: 1;
 
     form {
+        max-height: 550px;
         display: flex;
         align-items: center;
         flex-direction: column;

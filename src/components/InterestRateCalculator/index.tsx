@@ -35,7 +35,7 @@ const InterestRateCalculator: React.FC = () => {
   const [result, setResult] = useState();
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
-  const [testeMutation] = useMutation(START_CALCULATOR);
+  const [calculatorMutation] = useMutation(START_CALCULATOR);
 
   const formRef = useRef<FormHandles>(null);
 
@@ -46,7 +46,7 @@ const InterestRateCalculator: React.FC = () => {
       EntryValue, interestRate, Time, MonthlyInput, FinancialGoal,
     } = formData;
 
-    const response: any = await testeMutation({
+    const response: any = await calculatorMutation({
       variables: {
         EntryValue: parseFloat(EntryValue.toString()),
         interestRate: parseFloat(interestRate.toString()),

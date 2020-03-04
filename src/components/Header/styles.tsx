@@ -1,7 +1,7 @@
 import styled, { keyframes, css } from 'styled-components';
 
 interface MenuItemProps extends React.HTMLAttributes<HTMLDivElement> {
-  opacity: boolean;
+  opacity: string;
 }
 
 const fade = keyframes`
@@ -22,6 +22,7 @@ export const Container = styled.div`
     justify-content: center;
     color: #fff;
     padding: 10px;
+    z-index: 10;
     
     a {
       display: flex;
@@ -46,13 +47,11 @@ export const IconContainer = styled.div.attrs((props: MenuItemProps, ...rest) =>
   ...rest,
 }))`
     cursor: pointer;
-    ${(props: MenuItemProps) => 
-    props.opacity 
-      && css`
+    ${(props: MenuItemProps) => (props.opacity === 'false' ? null
+    : css`
           svg {
               animation: ${fade} 0.3s linear;
           }
-    `}
+    `)}
 
 `;
-

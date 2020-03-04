@@ -21,15 +21,15 @@ export const Button = styled.button.attrs((props: ButtonProps, ...rest) => ({
     
       background: #3FD6B1;
       font-weight: bold;
+      width: 80px;
+      height: 50px;
       color: #fff;
       border: 0;
       border-radius: 4px;
-      padding: 14px;
       font-size: 16px;
       transition: background 0.5s;
       &:hover {
-        color: #666;
-        background: ${darken(0.05, '#F6D741')};
+        background: ${darken(0.05, '#3cd1e8')};
       }
 
       ${(props: ButtonProps) => props.isLoading

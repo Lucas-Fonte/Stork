@@ -11,7 +11,7 @@ interface SubmitButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement
 export default function SubmitButton({ label, loading }: SubmitButtonProps) {
   return (
     <>
-      <Button type="button" isLoading={loading}>
+      <Button isLoading={loading}>
         {loading ? <FaSpinner style={{ color: '#fff' }} />
           : label}
       </Button>
@@ -19,4 +19,6 @@ export default function SubmitButton({ label, loading }: SubmitButtonProps) {
   );
 }
 
-
+SubmitButton.defaultProps = {
+  type: 'button',
+};

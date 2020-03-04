@@ -8,17 +8,15 @@ const logo = require('../../assets/logo.png');
 export default function Header() {
   const [statusMenu, setStatusMenu] = useState(false);
 
-  const handleMenu = (statusMenu: boolean) => { 
-    return (statusMenu ? setStatusMenu(false) : setStatusMenu(true))
-  };
-  
+  const handleMenu = (statusMenu: boolean) => (statusMenu ? setStatusMenu(false) : setStatusMenu(true));
+
   return (
     <Container>
       <a href=".">
         <img src={logo} alt="Stork" width="100" height="110" />
       </a>
       <HeaderMenu>
-        <IconContainer opacity={statusMenu}>          
+        <IconContainer opacity={statusMenu.toString() || undefined}>
           <FaPlus style={{ fontSize: 18 }} onClick={() => handleMenu(statusMenu)} />
         </IconContainer>
       </HeaderMenu>
