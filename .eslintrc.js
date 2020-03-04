@@ -8,7 +8,8 @@ module.exports = {
     "airbnb",
     "eslint:recommended",
     "plugin:@typescript-eslint/eslint-recommended",
-    "plugin:@typescript-eslint/recommended"
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
   ],
   globals: {
     Atomics: "readonly",
@@ -28,6 +29,8 @@ module.exports = {
   ],
   rules: {
     "func-names": "off",
+    "no-var-requires": "off",
+    "no-shadow": "off",
     "class-methods-use-this": "off",
     "react/prop-types": "off",
     "@typescript-eslint/explicit-function-return-type": "off",

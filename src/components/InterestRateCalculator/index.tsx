@@ -5,7 +5,7 @@ import { Form } from '@unform/web';
 import { gql } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
 import { InterestRateNeededInfo } from '../../../typings/types';
-import { Container, Loading } from './styles';
+import { Container } from './styles';
 
 import Input from '../_unform/Input';
 import SubmitButton from '../_unform/Button';
