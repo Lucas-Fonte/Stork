@@ -4,13 +4,21 @@ import { SubmitHandler, FormHandles } from '@unform/core';
 import { Form } from '@unform/web';
 import { gql } from 'apollo-boost';
 import { useMutation } from '@apollo/react-hooks';
+import { FaChevronDown } from 'react-icons/fa';
 import { InterestRateNeededInfo } from '../../../typings/types';
-import { Container } from './styles';
+import { Container, ModalLoaderHandler, Modal } from './styles';
 
 import Input from '../_unform/Input';
 import SubmitButton from '../_unform/Button';
-import { Modal } from '../Modal';
 import { timeout } from '../../utils/helpers';
+
+interface InterestRateResult {
+  EntryValue: number;
+  interestRate: number;
+  Time: number;
+  MonthlyInput: number;
+  FinancialGoal: number;
+}
 
 const START_CALCULATOR = gql`
   mutation startCalculator(
@@ -32,15 +40,16 @@ const START_CALCULATOR = gql`
 `;
 
 const InterestRateCalculator: React.FC = () => {
-  const [result, setResult] = useState();
+  const [result, setResult] = useState<any | null>();
   const [loading, setLoading] = useState(false);
   const [modal, setModal] = useState(false);
   const [calculatorMutation] = useMutation(START_CALCULATOR);
 
   const formRef = useRef<FormHandles>(null);
 
+  const toggleModal = (status: boolean) => (status ? setModal(false) : setModal(true));
+
   const handleSubmit: SubmitHandler<InterestRateNeededInfo> = async (formData) => {
-    setModal(false);
     setLoading(true);
     const {
       EntryValue, interestRate, Time, MonthlyInput, FinancialGoal,
@@ -61,7 +70,7 @@ const InterestRateCalculator: React.FC = () => {
     const thisData = JSON.parse(response.data.startCalculator);
 
     setResult(thisData);
-    setModal(true);
+    toggleModal(modal);
   };
 
 
@@ -75,7 +84,16 @@ const InterestRateCalculator: React.FC = () => {
         <Input name="FinancialGoal" label="Financial Goal" required defaultValue={1000000} />
         <SubmitButton type="submit" label="Submit" loading={loading} />
       </Form>
-      <Modal data={JSON.stringify(result, null, 4)} showing={modal} />
+      <ModalLoaderHandler opacity={modal ? 1 : 0}>
+        <Modal>
+          <ul>
+            { result
+              ? Object.keys(result).map((key) => <li key={key}>{`${key} : ${result[key]}`}</li>)
+              : null}
+          </ul>
+          <FaChevronDown onClick={() => toggleModal(modal)} />
+        </Modal>
+      </ModalLoaderHandler>
     </Container>
 
   );
