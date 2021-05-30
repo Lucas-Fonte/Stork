@@ -40,7 +40,7 @@
     "styled-components": "^5.0.1",
     "type-graphql": "^0.17.6",
     "typescript": "~3.7.2",
-    "ws": "^7.2.1"
+    "ws": "^7.4.6"
   },
   "scripts": {
     "react": "react-scripts start",
